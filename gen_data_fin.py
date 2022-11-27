@@ -297,7 +297,7 @@ def create_instances_threading(all_documents, user, max_seq_length, short_seq_pr
     for user in all_documents:
         cnt += 1;
         if cnt % 1000 == 0:
-            print("step: {}, name: {}, step: {}, time: {}".format(step, multiprocessing.current_process().name, cnt, time.clock()-start_time))
+            print("step: {}, name: {}, step: {}, time: {}".format(step, multiprocessing.current_process().name, cnt, time.perf_counter()-start_time))
             start_time = time.perf_counter()
         instances.extend(create_instances_from_document_train(
             all_documents, user, max_seq_length, short_seq_prob,
